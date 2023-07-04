@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
+
 
 # Mostrar los puertos TCP en escucha
 echo "Puertos TCP en escucha:"
-netstat -tnlp | awk '/^tcp/ {print $4, $7}' | awk -F '[:/]' '{print $4, $NF}'
+ss -tlnp | awk '/^tcp/ {print $4, $NF}' | awk -F '[:/]' '{print $2, $NF}'
 
 # Mostrar los puertos UDP en escucha
 echo "Puertos UDP en escucha:"
-netstat -unlp | awk '/^udp/ {print $4, $6}' | awk -F '[:/]' '{print $4, $NF}'
+ss -ulnp | awk '/^udp/ {print $4, $NF}' | awk -F '[:/]' '{print $2, $NF}'
