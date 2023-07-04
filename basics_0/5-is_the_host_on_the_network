@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Script.
 
-
 if [ $# -ne 1 ]; then
   echo "Usage: $0 {IP_ADDRESS}"
   exit 1
@@ -10,4 +9,3 @@ fi
 IP=$1
 
 ping -c 5 $IP
-
